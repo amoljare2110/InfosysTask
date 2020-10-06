@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="itemData"
+            type="com.ankit.jare.infosysDataBase.InfosysEntity" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5dp"
+        android:layout_marginEnd="@dimen/_5dp"
+        android:layout_marginBottom="@dimen/_5dp"
+        app:cardElevation="@dimen/_3dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5dp"
+                android:layout_toStartOf="@+id/img_arrow"
+                android:padding="@dimen/_10dp">
+
+                <TextView
+                    android:id="@+id/item_description"
+                    style="@style/ListDescriptionTextViewStyle"
+                    android:text="@{itemData.title}" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/item_description">
+
+                    <ImageView
+                        android:id="@+id/item_avatar"
+                        android:layout_width="@dimen/_150dp"
+                        android:layout_height="@dimen/_100dp"
+                        android:layout_alignParentEnd="true"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="fitXY"
+                        android:layout_marginTop="@dimen/_5dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/item_name"
+                        style="@style/ListTitleTextViewStyle"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/item_avatar"
+                        android:text="@{itemData.description}" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/img_arrow"
+                style="@style/ArrowButtonStyle"
+                android:contentDescription="@string/app_name" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
